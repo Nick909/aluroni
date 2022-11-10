@@ -10,16 +10,16 @@ import Prato from 'Pages/Prato/Prato';
 
 export default function AppRouter () {
   return (
-    <main>
-      <Router className="container">
+    <main className="container">
+      <Router>
         <Menu />
         <Routes>
           <Route path='/' element={<PaginaPadrao />} >
             <Route index element={<Inicio />} />
             <Route path='cardapio' element={<Cardapio />} />
             <Route path='Sobre' element={<Sobre />} />
-            <Route path='prato/:id' element={<Prato />} />
           </Route>
+          <Route path='prato/:id' element={<Prato />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />

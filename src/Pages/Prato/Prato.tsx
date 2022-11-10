@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import cardapio from 'data/cardapio.json';
 import TagsPrato from 'components/TagsPrato/TagsPrato';
 import NotFound from 'Pages/NotFound/NotFound';
+import PaginaPadrao from 'components/PaginaPadrao/PaginaPadrao';
 
 function Prato () {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function Prato () {
     return <NotFound />;
 
   return(
-    <>
+    <PaginaPadrao>
       <button className={styles.voltar} onClick={() => navigate(-1)}>
         {'< Voltar'}
       </button>
@@ -31,7 +32,7 @@ function Prato () {
         </div>
         <TagsPrato {...prato} />
       </section>
-    </>
+    </PaginaPadrao>
   );
 }
 
