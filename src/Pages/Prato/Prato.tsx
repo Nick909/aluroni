@@ -1,14 +1,16 @@
 import styles from './Prato.module.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import cardapio from 'data/cardapio.json';
-import TagsPrato from 'components/TagsPrato/TagsPrato';
-import NotFound from 'Pages/NotFound/NotFound';
-import PaginaPadrao from 'components/PaginaPadrao/PaginaPadrao';
+import { lazy } from 'react';
 
 function Prato () {
   const { id } = useParams();
   const navigate = useNavigate();
   const prato = cardapio.find(item => item.id === Number(id));
+
+  const NotFound = lazy(() => import('Pages/NotFound/NotFound'));
+  const TagsPrato = lazy(() => import('components/TagsPrato/TagsPrato'));
+  const PaginaPadrao = lazy(() => import('components/PaginaPadrao/PaginaPadrao'));
 
   if (!prato)
     return <NotFound />;

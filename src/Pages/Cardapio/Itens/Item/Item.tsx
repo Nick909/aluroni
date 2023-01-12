@@ -2,6 +2,7 @@ import styles from './Item.module.scss';
 import { Prato } from 'types/Prato';
 import TagsPrato from 'components/TagsPrato/TagsPrato';
 import { useNavigate } from 'react-router-dom';
+import { memo } from 'react';
 
 function Item (props: Prato) {
   const navigate = useNavigate();
@@ -22,4 +23,4 @@ function Item (props: Prato) {
   );
 }
 
-export default Item;
+export default memo(Item);
